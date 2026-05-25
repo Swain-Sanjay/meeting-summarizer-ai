@@ -1,0 +1,52 @@
+# ============================================================
+# AI Meeting Assistant - Requirements
+# Python >= 3.9 recommended
+# ============================================================
+ 
+# ── Audio & YouTube ─────────────────────────────────────────
+yt-dlp>=2024.4.9                  # Download audio from YouTube URLs
+pydub>=0.25.1                     # Audio file manipulation / format conversion
+ffmpeg-python>=0.2.0              # FFmpeg bindings (ffmpeg binary must be installed separately)
+ 
+# ── Speech-to-Text (local Whisper) ──────────────────────────
+openai-whisper>=20231117          # OpenAI Whisper (local inference)
+torch>=2.2.0                      # PyTorch backend for Whisper
+torchaudio>=2.2.0                 # Audio utilities for PyTorch
+ 
+# ── Translation (Hindi → English) ───────────────────────────
+deep-translator>=1.11.4           # Lightweight translation (Google backend, no key needed)
+# OR swap for argostranslate>=1.9.1 for fully offline translation
+ 
+# ── LLM – Mistral via LangChain LCEL ────────────────────────
+langchain>=0.2.0                  # LangChain core
+langchain-core>=0.2.0             # LCEL primitives (Runnable, prompts, parsers)
+langchain-mistralai>=0.1.0        # LangChain Mistral integration
+mistralai>=1.0.0                  # Official Mistral AI Python SDK
+ 
+# ── RAG – Embeddings & Vector Store ─────────────────────────
+langchain-community>=0.2.0        # Community integrations (Chroma loader, HF embeddings)
+langchain-huggingface>=0.0.3      # HuggingFaceEmbeddings (langchain-huggingface package)
+chromadb>=0.5.0                   # ChromaDB vector store (local, no server needed)
+sentence-transformers>=3.0.0      # Model backend for HuggingFace embeddings
+huggingface-hub>=0.23.0           # HuggingFace Hub access for model downloads
+ 
+# ── Text Splitting & Document Handling ──────────────────────
+tiktoken>=0.7.0                   # Token counting (used by LangChain splitters)
+unstructured>=0.14.0              # Optional: parse uploaded docs/transcripts
+ 
+# ── Streamlit UI ────────────────────────────────────────────
+streamlit>=1.35.0                 # Web UI framework
+streamlit-extras>=0.4.2           # Optional: extra Streamlit components
+watchdog>=4.0.0                   # Faster Streamlit hot-reload on Linux/macOS
+ 
+# ── PDF & TXT Export ────────────────────────────────────────
+reportlab>=4.2.0                  # Generate PDF files programmatically
+fpdf2>=2.7.9                      # Lighter alternative PDF generator
+ 
+# ── Utilities ───────────────────────────────────────────────
+python-dotenv>=1.0.1              # Load .env files for API keys
+numpy>=1.26.0                     # Numerical ops (Whisper / torch dependency)
+requests>=2.32.0                  # HTTP requests
+tqdm>=4.66.0                      # Progress bars
+loguru>=0.7.2                     # Structured logging
+tenacity>=8.3.0                   # Retry logic for API calls
